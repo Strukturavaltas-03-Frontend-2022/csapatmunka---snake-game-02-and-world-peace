@@ -100,28 +100,26 @@ export default class Level {
     const level:LevelMap = this.generatorFunction(rows, cols);
     //////////
 
-
-    
-
     level.forEach(line => {
       const [x0, y0]: coord = line[0];
-
+      
       /**
        * FELADAT!
        * Olvasd ki a fenti sorhoz hasonlóan az x1 és y1 koordinátákat is, 
        * a line második eleméből!
        */
-
-      
+      //////////
+      const [x1, y1]: coord = line[2];
+      //////////
 
       /**
        * FELADAT!
        * Hívd meg a this.line metódust, és add neki át az x0, y0, x1, y1 
        * értékeket.
        */
-
-      
-
+      ///////////
+      this.line(x0, y0, x1, y1);
+      ///////////
     });
   }
 }
