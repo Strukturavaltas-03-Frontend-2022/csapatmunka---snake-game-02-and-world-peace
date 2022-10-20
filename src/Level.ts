@@ -79,7 +79,7 @@ export default class Level {
      * lefelé kerekítve 
      */
     //////////////
-    const cols = Math.floor(this.garden.clientHeight / SIZE);
+    const cols:number = Math.floor(this.garden.clientHeight / SIZE);
     /////////////
     
     /** 
@@ -88,7 +88,7 @@ export default class Level {
      * lefelé kerekítve 
      */
     //////////////
-    const rows = Math.floor(this.garden.clientWidth / SIZE);
+    const rows:number = Math.floor(this.garden.clientWidth / SIZE);
     /////////////
     
     /** 
@@ -96,7 +96,10 @@ export default class Level {
      * @var {LevelMap} level - this.generatorFunction által visszaadott érték, 
      * a rows és cols paraméterekkel
      */
-    
+    ///////////
+    const level:LevelMap = this.generatorFunction(rows, cols);
+    //////////
+
 
     
 
