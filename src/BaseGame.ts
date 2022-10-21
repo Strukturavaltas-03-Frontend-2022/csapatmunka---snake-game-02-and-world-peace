@@ -22,7 +22,13 @@ export default abstract class BaseGame implements IBaseGame {
      * majd kerekítsd lefelé, ez lesz az index.
      * Majd térj vissza a this.levels tömbnek ezzel az indexével.
      */
-    abstract getRandomLevel(): Level;
+     abstract getRandomLevel(levels: any[]): Level {
+        let feladat = Math.random();
+        this.levels= new Level;
+        let rand = Math.floor(feladat*this.levels.length);
+         return rand;
+    }
+
 
     /**
      * @returns {boolean}
@@ -30,7 +36,17 @@ export default abstract class BaseGame implements IBaseGame {
      * 2. hozz létre egy pick nevű változót, értéke random szám szorozva 100-zal
      * 3. térj vissza true értékkel, ha a pick kisebb, mint a chance
      */
-    abstract mayIHaveGoldenApple(): boolean;
+     abstract mayIHaveGoldenApple(chance:number, pick:number): boolean{
+        chance= 5;
+        pick = Math.random ()*100;
+       if (pick<chance){
+           return true;
+       }else {
+           return false;
+       }
+   }
+
+
 
     /**
      * @returns {void}
@@ -42,5 +58,14 @@ export default abstract class BaseGame implements IBaseGame {
      * metódust, hogy eltávolítsd őket az oldalról
      * 4. a this.gridVisible értékét állítsd false-ra
      */
-    abstract removeGrid (): void;
+     abstract removeGrid (): void{
+        let grids = [];
+        grids.push(document.getElementsByClassName("vertical-grid horizontal-grid"));
+        for (let i=0; i<grids.length; i++ ){
+            Utils.removeNode(grids[i]); 
+        
+        }
+        this.gridVisible =false; 
+
+    }
 }
