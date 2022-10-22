@@ -63,7 +63,20 @@ export default class Piece implements IPiece {
     type: string;
     garden: HTMLDivElement;
   
+    setType(type: string): void{
+      this.type = type;
+      this.applyClass();
+    };
   
+   applyClass(): void {
+    this.el.className = "";
+    this.el.classList.add("cell", this.type, this.direction );
+   } 
+  
+   isCollidingWith(node: Piece | null): boolean{
+    return 
+  
+   }
   
   constructor({
     x,
