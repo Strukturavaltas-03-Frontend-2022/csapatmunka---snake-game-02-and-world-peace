@@ -262,10 +262,13 @@ mayIHaveGoldenApple(): boolean{
     if (this.noClip === true) {
       return this.score;
     }
+      this.score += won
+  
+      if (this.score >= 20){
+      this.score = 0
+    } 
 
-    this.score += won;
-    
-    return this.score === 5? 0 : this.score;
+    return this.score;
   }
 
   showScore (): void {
