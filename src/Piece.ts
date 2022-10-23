@@ -27,7 +27,7 @@ interface IPiece {
    * 1. A this.type tulajdonságot beállítja a kapott type értékre.
    * 2. Meghívja a this.applyClass metódust a változtatások érvényesítéséhez.
    */
-  setType(type: string): void;
+  setType(type: string): void; 
 
   /**
    * Osztályokat állít be a this.el HTML-elemre.
@@ -53,14 +53,32 @@ interface IPiece {
  * Pótold a hiányzó tulajdonságokat és metódusokat az interfész alapján.
  */
 export default class Piece implements IPiece {
-  next: Piece | null;
-  prev: Piece | null;
-  x: number;
-  y: number;
-  el: HTMLDivElement;
-  direction: string;
-  type: string;
-  garden: HTMLDivElement;
+
+
+    next: Piece | null;
+    prev: Piece | null;
+    x: number;
+    y: number;
+    el: HTMLDivElement;
+    direction: string;
+    type: string;
+    garden: HTMLDivElement;
+  
+    setType(type: string): void{
+      this.type = type;
+      this.applyClass();
+    };
+  
+   applyClass(): void {
+    this.el.className = "";
+    this.el.classList.add("cell", this.type, this.direction );
+   } 
+  
+   isCollidingWith(node: Piece | null): boolean{
+    return 
+  
+   }
+  
 
   constructor({
     x,
