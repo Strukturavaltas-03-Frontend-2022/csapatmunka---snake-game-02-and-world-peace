@@ -4,16 +4,16 @@ import Piece from "./Piece";
 import Utils from "./Utils";
 
 export default abstract class BaseGame implements IBaseGame {
-    protected head: Piece;
-    protected tail: Piece;
-    protected paused: boolean = false;
-    protected food: Piece | null;
-    protected goldenApple: Piece | null;
-    protected length: number = 0;
-    protected growth: number = 0;
-    protected score: number = 0;
-    protected currentLevel: Level | null;
-    protected garden: HTMLDivElement;
+     head: Piece;
+     tail: Piece;
+     food: Piece | null;
+     goldenApple: Piece | null;
+     length: number = 0;
+     growth: number = 0;
+     score: number = 0;
+     currentLevel: Level | null;
+     garden: HTMLDivElement;
+
 
     protected moving: boolean = false;
 
@@ -33,11 +33,13 @@ export default abstract class BaseGame implements IBaseGame {
      * majd kerekítsd lefelé, ez lesz az index.
      * Majd térj vissza a this.levels tömbnek ezzel az indexével.
      */
+
      abstract getRandomLevel(): Level {
         const feladat = Math.random();
         const rand = Math.floor(feladat*this.levels.length);
          return this.levels[rand];
     }
+
 
 
     /**
@@ -46,6 +48,7 @@ export default abstract class BaseGame implements IBaseGame {
      * 2. hozz létre egy pick nevű változót, értéke random szám szorozva 100-zal
      * 3. térj vissza true értékkel, ha a pick kisebb, mint a chance
      */
+
      abstract mayIHaveGoldenApple(): boolean{
         chance= 5;
         pick = Math.random ()*100;
@@ -55,6 +58,7 @@ export default abstract class BaseGame implements IBaseGame {
            return false;
        }
    }
+
 
 
 
@@ -68,6 +72,7 @@ export default abstract class BaseGame implements IBaseGame {
      * metódust, hogy eltávolítsd őket az oldalról
      * 4. a this.gridVisible értékét állítsd false-ra
      */
+
      abstract removeGrid (): void{
         
         const grids: [] = Array.from(document.getElementsByClassName("vertical-grid horizontal-grid"))
@@ -79,3 +84,4 @@ export default abstract class BaseGame implements IBaseGame {
 
     }
 }
+

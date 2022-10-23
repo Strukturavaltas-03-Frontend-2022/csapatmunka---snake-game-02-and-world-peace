@@ -109,7 +109,9 @@ export default class Level {
        * a line második eleméből!
        */
       //////////
-      const [x1, y1]: coord = line[2];
+
+      const [x1, y1]: coord = line[1];
+
       //////////
 
       /**

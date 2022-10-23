@@ -63,6 +63,31 @@ export default class Game extends BaseGame {
     this.showScore();
   }
 
+  getRandomLevel(): Level {
+    const rand = Math.floor(Math.random()*this.levels.length);
+     return this.levels[rand];
+}
+
+ removeGrid (): void{
+        
+  const verticalGrids: any[] = Array.from(document.getElementsByClassName("vertical-grid"))
+  const horizontalGrids: any[] = Array.from(document.getElementsByClassName("horizontal-grid "))
+  const grids: any[] = [...verticalGrids, ...horizontalGrids]
+  for (let i=0; i<grids.length; i++ ){
+      Utils.removeNode(grids[i]); 
+  }
+  this.gridVisible =false; 
+}
+
+mayIHaveGoldenApple(): boolean{
+  const chance: number = 5; // javítva, hogy nem volt const
+  const pick:number = Math.random()*100; //javítva
+ if (pick<chance){
+     return true;
+ }else {
+     return false;
+ }
+}
   
 
   // Remove the old chain, put HEAD in the starting position
@@ -172,7 +197,7 @@ export default class Game extends BaseGame {
         this.growth += 1; // Snake got bigger
       }
 
-      this.updateScore(type === 'food' ? 10 : 50); // Calculate the new score
+      this.updateScore(type === 'food' ? 1 : -2); // Calculate the new score
       this.showScore(); // Update the score
     }
   }
@@ -239,8 +264,8 @@ export default class Game extends BaseGame {
     }
 
     this.score += won;
-
-    return this.score;
+    
+    return this.score === 5? 0 : this.score;
   }
 
   showScore (): void {
