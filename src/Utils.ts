@@ -10,8 +10,8 @@ class Debouncer {
    * @returns {number} - Válaszd ki a kisebbet a num és a max közül,
    * majd válaszd ki a nagyobbat az előbbi érték és a min közül.
    */
-  static bound(numb: number, min: number, max: number) {
-    const result1 = numb < max ? numb : max;
+  static bound(num: number, min: number, max: number) {
+    const result1 = num < max ? num : max;
     const result2 = result1 > min ? result1 : min;
     return result2;
   }
