@@ -80,8 +80,8 @@ export default class Game extends BaseGame {
 }
 
 mayIHaveGoldenApple(): boolean{
-  const chance: number = 5; // javítva, hogy nem volt const
-  const pick:number = Math.random()*100; //javítva
+  const chance: number = 50; // ez most 50, hogy 50-50 alapon legyen goldenapple
+  const pick:number = Math.random()*100; 
  if (pick<chance){
      return true;
  }else {
