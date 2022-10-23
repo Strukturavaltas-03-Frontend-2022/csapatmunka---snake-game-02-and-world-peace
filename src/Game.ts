@@ -80,8 +80,8 @@ export default class Game extends BaseGame {
 }
 
 mayIHaveGoldenApple(): boolean{
-  const chance: number = 50; // ez most 50, hogy 50-50 alapon legyen goldenapple
-  const pick:number = Math.random()*100; 
+  const chance: number = 5; // javítva, hogy nem volt const
+  const pick:number = Math.random()*100; //javítva
  if (pick<chance){
      return true;
  }else {
@@ -346,10 +346,10 @@ mayIHaveGoldenApple(): boolean{
   notBackwards (key: number): boolean {
     const lastDirection = Directions.peek();
 
-    if ((lastDirection === keys.UP && key === keys.DOWN)
-        || (lastDirection === keys.DOWN && key === keys.UP)
-        || (lastDirection === keys.LEFT && key === keys.RIGHT)
-        || (lastDirection === keys.RIGHT && key === keys.LEFT)) {
+    if ((lastDirection === keys.UP && (key === keys.DOWN || key === keys.RIGHT))
+        || (lastDirection === keys.DOWN && (key === keys.UP || key === keys.LEFT))
+        || (lastDirection === keys.LEFT && (key === keys.RIGHT || key === keys.UP))
+        || (lastDirection === keys.RIGHT && (key === keys.LEFT || key === keys.DOWN))) {
       return false;
     }
     return true;
